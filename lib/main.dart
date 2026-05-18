@@ -1,6 +1,8 @@
-import 'package:ecommerce_app_ui/pages/home_page.dart';
+import 'package:ecommerce_app_ui/Models/Cart.dart';
 import 'package:ecommerce_app_ui/pages/intro_page.dart';
+
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 
 void main(){
@@ -13,8 +15,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: IntroPage(),
+    return ChangeNotifierProvider(
+      create: (context)=> Cart(),
+      builder: (context,child)=> const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: IntroPage(),
+      ),
     );
   }
 }
